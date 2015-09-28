@@ -17,5 +17,8 @@ describe("Plane", function() {
     plane.land();
     expect(plane.isFlying).toBe(false);
   });
-  
+
+  it('can take off', function(){
+    expect( plane.take_off ).toEqual(jasmine.any(Function));
+  });
 });
