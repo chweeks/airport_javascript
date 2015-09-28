@@ -7,5 +7,5 @@ Plane.prototype.land = function() {
 };
 
 Plane.prototype.take_off = function() {
-
+  this.isFlying = true;
 };

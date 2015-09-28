@@ -21,4 +21,10 @@ describe("Plane", function() {
   it('can take off', function(){
     expect( plane.take_off ).toEqual(jasmine.any(Function));
   });
+
+  it('is flying after take off', function(){
+    plane.land();
+    plane.take_off();
+    expect(plane.isFlying).toBe(true);
+  });
 });
