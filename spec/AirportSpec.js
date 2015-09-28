@@ -4,6 +4,7 @@ describe("Airport", function() {
 
   beforeEach(function() {
     plane = new Plane();
+    plane2 = new Plane();
     airport = new Airport();
   });
 
@@ -20,5 +21,9 @@ describe("Airport", function() {
   it('can instruct a plane to land', function() {
     airport.instruct_to_land(plane)
     expect(airport.hanger).toEqual([plane])
+  });
+
+  it("should have capacity when created", function() {
+    expect(airport.capacity).toBe(20)
   });
 });

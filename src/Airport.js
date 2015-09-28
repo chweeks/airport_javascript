@@ -1,5 +1,6 @@
 function Airport() {
   this.hanger = [];
+  this.capacity = 20;
 };
 
 Airport.prototype.instruct_to_take_off = function(plane){
