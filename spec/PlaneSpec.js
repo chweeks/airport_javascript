@@ -9,8 +9,13 @@ describe("Plane", function() {
     expect(plane.isFlying).toBe(true);
   });
 
-  it('should set isFlying to false', function() {
+  it('can land', function() {
+    expect( plane.land ).toEqual(jasmine.any(Function));
+  });
+
+  it('is landed after landing', function() {
     plane.land();
     expect(plane.isFlying).toBe(false);
   });
+  
 });
