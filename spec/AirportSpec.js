@@ -12,9 +12,13 @@ describe("Airport", function() {
   });
 
   it('can instruct a plane to take_off', function(){
-    airport.hanger.push(plane)
+    airport.instruct_to_land(plane)
     airport.instruct_to_take_off(plane)
     expect(airport.hanger.length).toEqual(0)
   });
 
+  it('can instruct a plane to land', function() {
+    airport.instruct_to_land(plane)
+    expect(airport.hanger).toEqual([plane])
+  });
 });
