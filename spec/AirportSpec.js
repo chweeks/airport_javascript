@@ -1,5 +1,6 @@
 describe("Airport", function() {
   var plane;
+  var plane2;
   var airport;
 
   beforeEach(function() {
@@ -25,5 +26,10 @@ describe("Airport", function() {
 
   it("should have capacity when created", function() {
     expect(airport.capacity).toBe(20)
+  });
+
+  it('Plane can\'t land if hanger is full', function() {
+    airport.instruct_to_land(plane)
+    expect(function(){ airport.instruct_to_land(plane2); }).toThrow("Hanger is full");
   });
 });

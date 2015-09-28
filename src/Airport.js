@@ -8,5 +8,9 @@ Airport.prototype.instruct_to_take_off = function(plane){
 };
 
 Airport.prototype.instruct_to_land = function(plane){
-  this.hanger.push(plane)
+  if (this.hanger <= this.capacity) {
+    this.hanger.push(plane)
+} else {
+      throw "Hanger is full";
+}
 };
