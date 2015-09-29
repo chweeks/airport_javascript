@@ -7,6 +7,7 @@ describe("Airport", function() {
     plane = new Plane();
     plane2 = new Plane();
     airport = new Airport();
+    weather = new Weather();
   });
 
   it('initiated with an empty hanger', function(){
@@ -36,5 +37,11 @@ describe("Airport", function() {
 
   it('Can\'t instruct plane to take off if not in hanger', function(){
     expect(function(){airport.instruct_to_take_off(plane); }).toThrow("Plane not in hanger");
+  });
+
+  it('Can\'t take off in stormy weather', function(){
+    airport.instruct_to_land(plane)
+    spyOn(weather, 'chance').and.returnValue(0.95);
+    expect(function(){airport.instruct_to_take_off(plane); }).toThrow("Cannot take off in stormy weather");
   });
 });
