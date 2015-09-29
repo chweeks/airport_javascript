@@ -17,7 +17,9 @@ describe("Airport", function() {
         this.isFlying = true
       }
     };
-    weather = new Weather();
+    weather = {
+      isStormy: function() {}
+    };
   });
 
   it('initiated with an empty hanger', function(){
@@ -67,7 +69,7 @@ describe("Airport", function() {
   });
 
   it('Can\'t take off in stormy weather', function(){
-    airport.instruct_to_land(plane)
+    airport.hanger = [plane]
     spyOn(weather, 'isStormy').and.returnValue(true);
     expect(function(){airport.instruct_to_take_off(plane); }).toThrow("Cannot take off in stormy weather");
   });
