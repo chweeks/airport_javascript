@@ -11,6 +11,7 @@ Airport.prototype.instruct_to_take_off = function(plane){
   else{
     for (i=0; i <= this.hanger.length; i++){
       if (this.hanger[i] == plane){
+        plane.take_off();
         this.hanger.splice(i);
         break; }
       else{
@@ -21,8 +22,14 @@ Airport.prototype.instruct_to_take_off = function(plane){
 };
 
 Airport.prototype.instruct_to_land = function(plane){
-  if (this.hanger.length >= this.capacity) {
-    throw "Hanger is full";}
- else {
-    this.hanger.push(plane)}
+  if (weather.isStormy() == true) {
+    throw "Cannot land in stormy weather"
+  }
+  else {
+    if (this.hanger.length >= this.capacity) {
+      throw "Hanger is full";}
+   else {
+      plane.land();
+      this.hanger.push(plane)}
+  }
 };

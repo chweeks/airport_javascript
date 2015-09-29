@@ -27,4 +27,5 @@ describe("Plane", function() {
     plane.take_off();
     expect(plane.isFlying).toBe(true);
   });
+
 });

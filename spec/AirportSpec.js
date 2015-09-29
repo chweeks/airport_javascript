@@ -44,4 +44,20 @@ describe("Airport", function() {
     spyOn(weather, 'chance').and.returnValue(0.95);
     expect(function(){airport.instruct_to_take_off(plane); }).toThrow("Cannot take off in stormy weather");
   });
+
+  it('Can\'t land in stormy weather', function(){
+    spyOn(weather, 'chance').and.returnValue(0.95);
+    expect(function(){airport.instruct_to_land(plane); }).toThrow("Cannot land in stormy weather");
+  });
+
+  it('Plane is flying after instructed to take off', function() {
+    airport.instruct_to_land(plane);
+    airport.instruct_to_take_off(plane);
+    expect(plane.isFlying).toBe(true);
+  });
+
+  it('Plane is landed after instructed to land', function() {
+    airport.instruct_to_land(plane);
+    expect(plane.isFlying).toBe(false);
+  });
 });
