@@ -29,7 +29,12 @@ describe("Airport", function() {
   });
 
   it('Plane can\'t land if hanger is full', function() {
+    airport.capacity = 1
     airport.instruct_to_land(plane)
     expect(function(){ airport.instruct_to_land(plane2); }).toThrow("Hanger is full");
+  });
+
+  it('Can\'t instruct plane to take off if not in hanger', function(){
+    expect(function(){airport.instruct_to_take_off(plane); }).toThrow("Plane not in hanger");
   });
 });
